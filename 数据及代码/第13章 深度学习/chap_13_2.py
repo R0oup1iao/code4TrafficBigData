@@ -1,5 +1,5 @@
 import numpy as np
-
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -61,7 +61,7 @@ import psycopg2
 
 sql = "SELECT * FROM flow"
 path = psycopg2.connect(database="你的数据库", user="postgres", password="你的密码", host="127.0.0.1", port="5432")
-data = TrafficDatase(path)
+data = TrafficDataset(path)
 train_len = int(len(data) * 0.6)
 val_len = int(len(data) * 0.8)
 train_data = Subset(data, range(train_len))
